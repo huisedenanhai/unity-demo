@@ -113,11 +113,13 @@ public class MainTitle : MonoBehaviour {
             lineList.Add("你对中文支持怎么样 " + i.ToString() + "!\n");
             avatarList.Add("avatar" + (i%2).ToString());
             if (i == 0) {
+                musicList.Add("Assets/2.mp3");
+            } else if (i==5){
                 musicList.Add("Assets/1.mp3");
-            } else {
-                musicList.Add("");
+               
             }
-            
+            else {  musicList.Add("");}
+              
         }
         linePointer = 0;
     }
