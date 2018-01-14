@@ -13,6 +13,7 @@ public class MainTitle : MonoBehaviour {
     public Text lineMain;
     public Image avatar;
     public AudioSource bgm;
+    public Image lineImage;
     
 
     private Sprite expan;
@@ -74,11 +75,17 @@ public class MainTitle : MonoBehaviour {
                 imageTest.enabled = true;
                 buttonStart.transform.Find("Text").GetComponent<Text>().text = "back";
                 lineMain.enabled = true;
+                lineImage.enabled = true;
+                avatar.enabled = true;
+                lineMain.enabled = true;
                 break;
             case MainTitleStates.mttitle:
                 imageBackGround.enabled = true;
                 imageTest.enabled = false;
                 buttonStart.transform.Find("Text").GetComponent<Text>().text = "start";
+                lineMain.enabled = false;
+                lineImage.enabled = false;
+                avatar.enabled = false;
                 lineMain.enabled = false;
                 break;
         }
@@ -104,6 +111,10 @@ public class MainTitle : MonoBehaviour {
         buttonStart.onClick.AddListener(ButtonStartClick);
         imageTest.enabled = false;
         lineMain.StopAllCoroutines();
+        lineImage.enabled = false;
+        avatar.enabled = false;
+        lineMain.enabled = false;
+
 
         /* init */
         lineList = new List<string>();
