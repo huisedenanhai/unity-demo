@@ -51,11 +51,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\MainTitle.cs" />
      <Compile Include="Assets\Scripts\audioController.cs" />
      <Compile Include="Assets\Scripts\chapterController.cs" />
+     <Compile Include="Assets\Scripts\chapterEvent.cs" />
      <Compile Include="Assets\Scripts\configBoxController.cs" />
      <Compile Include="Assets\Scripts\exitController.cs" />
+     <Compile Include="Assets\Scripts\MainTitle.cs" />
+     <Compile Include="Assets\Scripts\titleController.cs" />
      <Compile Include="Assets\Scripts\txtBoxController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
