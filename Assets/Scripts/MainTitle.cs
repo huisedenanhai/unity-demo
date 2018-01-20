@@ -33,7 +33,7 @@ public class MainTitle : MonoBehaviour {
         public string line;
         public string avatar;
         public string music;
-    };
+    }
 
     private enum MainTitleStates {
         mtvoid = 0,

@@ -21,23 +21,34 @@ public class audioController : MonoBehaviour {
         return;
     }
 
-    int i,j;
+    private int bgmNumPrefix = 1;
+    private int bgmNumMax = 3;
+
+    private void nextBgm() {
+        int next = (int)(Random.value * 1000) % (bgmNumMax-1) + 1;
+        bgmNumPrefix = (bgmNumPrefix - 1 + next) % 3 + 1;
+        return;
+    }
+
     // Use this for initialization
     private GameObject title;
     void Start () {
         BGM.volume = sliderBGM.value;
         title = GameObject.Find("title");
-        i = (int)(Random.value * 1000) % 3 + 1;
-        j = 0;
+        // for (int i = 0; i < 100; i++) {
+        //     nextBgm();
+        //     Debug.Log(bgmNumPrefix);
+        // }
     }
     
 	// Update is called once per frame
 	void Update () {
         BGM.volume = sliderBGM.value;
-        if (BGM.isPlaying == false && title.gameObject.active == true) {            
-            while (j == i) i = (int)(Random.value * 1000) % 3 + 1;
-            j = i;          
-            PlayMusic(BGM,"Assets/BGM/" + j + ".mp3");
+#pragma warning disable CS0618 // 类型或成员已过时
+        if (BGM.isPlaying == false && title.gameObject.active == true) {
+#pragma warning restore CS0618 // 类型或成员已过时
+            nextBgm();              
+            PlayMusic(BGM,"Assets/BGM/" + bgmNumPrefix + ".mp3");
         }
         if (title.gameObject.active == false) BGM.Stop();
     }
