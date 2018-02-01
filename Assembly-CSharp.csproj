@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\audioController.cs" />
      <Compile Include="Assets\Scripts\chapterController.cs" />
+     <Compile Include="Assets\Scripts\chapterEndController.cs" />
      <Compile Include="Assets\Scripts\chapterEvent.cs" />
      <Compile Include="Assets\Scripts\configBoxController.cs" />
      <Compile Include="Assets\Scripts\exitController.cs" />

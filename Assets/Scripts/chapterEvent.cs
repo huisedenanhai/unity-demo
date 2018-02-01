@@ -14,13 +14,19 @@ public class chapterEvent : MonoBehaviour {
     public Image bg;
     public AudioSource bgm;
     public Text txt;
+    public Text txt2;
     public Image avatar;
+    public Canvas chapterThis;
+    public Canvas chapterNext;
 
     private struct DisplayUnit
     {
         public string line;
-        public string avatar;
+        public string character;
+        public string avatar;      
+        public string voice;
         public string music;
+        public string sound;
     }
 
     private enum MainTitleStates
@@ -34,41 +40,55 @@ public class chapterEvent : MonoBehaviour {
     private MainTitleStates stateNext;
     private IDbConnection dbconn;
 
-    private DisplayUnit GetLineFromDataBase()
+    private DisplayUnit GetLineFromDataBase(int ID)
     {     
        
 
         IDbCommand dbcmd = dbconn.CreateCommand();
-        int id = (int)(Random.value * 1000) %3+1;
-        string sqlQuery = "SELECT line, avatarpath, musicpath from colorless where id = " + id.ToString() + ";";
+        int id =ID;
+        string sqlQuery = "SELECT line,character,avatarpath, voicepath,musicpath,soundpath from colorless where id = " + id.ToString() + ";";
         dbcmd.CommandText = sqlQuery;
         IDataReader reader = dbcmd.ExecuteReader();
         string line = "";
+        string character = "";
         string avatarpath = "";
+        string voicepath = "";
         string musicpath = "";
+        string soundpath = "";
         while (reader.Read())
         {
             line = reader.GetString(0);
-            avatarpath = reader.GetString(1);
-            musicpath = reader.GetString(2);
-            Debug.Log("line= " + line + "  avatarpath =" + avatarpath + "  musicpath =" + musicpath);
+            character = reader.GetString(1);
+            avatarpath = reader.GetString(2);
+            if (avatarpath == "") avatarpath = "Character/ch_0";
+            voicepath = reader.GetString(3);
+            musicpath = reader.GetString(4);
+            soundpath = reader.GetString(5);
+            Debug.Log("line= " + line + "  character ="+character+"  avatarpath =" + avatarpath + "  voicepath =" + voicepath+"  musicpath =" + musicpath +"  soundpath =" + soundpath);
         }
         reader.Close();
         reader = null;
         dbcmd.Dispose();
-        dbcmd = null;     
-        Debug.Log("test bug");
+        dbcmd = null;
+        // Debug.Log("test bug");
 
         DisplayUnit ret = new DisplayUnit
         {
             line = line,
+            character = character,
             avatar =avatarpath,
-            music=musicpath
+            voice=voicepath,
+            music=musicpath,
+            sound=soundpath
         };
         return ret;
     }
 
+    int i;
+    string bgmPlay;
     void OnEnable() {
+        i = 1;
+        bgmPlay = "";
         chapter_title.enabled = false;
         bg.enabled = false;
     }
@@ -82,30 +102,30 @@ public class chapterEvent : MonoBehaviour {
     }
 
     // Update is called once per frame
-    int i=0;
+    
     void Update(){    
-       if (Input.GetMouseButtonUp(0) == true){
+       if (Input.GetMouseButtonUp(0)  || Input.GetKey(KeyCode.RightControl)|| Input.GetKey(KeyCode.LeftControl))
+        {
             if (chapter_title.enabled == false) chapter_title.enabled = true;
-            else {
+            else {               
                 bg.enabled = true;
                 txtBox.gameObject.active = true;
-                bgm.GetComponent<audioController>().PlayMusic(bgm,"Assets/BGM/1.mp3");
-                DisplayUnit dpu = GetLineFromDataBase();
+                DisplayUnit dpu = GetLineFromDataBase(i);
+                if (bgmPlay != dpu.music){
+                    bgmPlay = dpu.music;
+                    bgm.GetComponent<audioController>().PlayMusic(bgm, "Assets/" + dpu.music + ".mp3");
+                }                
                 txt.text = dpu.line;
+                txt2.text = dpu.character;
                 avatar.sprite = Resources.Load(dpu.avatar, typeof(Sprite)) as Sprite;
-             //   PlayMusic(dpu.music);
+                i++;
+                if (i == 69){
+                    txtBox.gameObject.active = false;
+                    chapterNext.gameObject.active = true;
+                    chapterThis.gameObject.active = false;           
+                }
             } 
-        }
-
-     //   if (Input.GetMouseButtonUp(0) == true)
-    //       {
-          //  if ((state == MainTitleStates.mtchapter) && (stateNext == MainTitleStates.mtchapter))
-         //   {
-               // DisplayUnit dpu = GetLineFromDataBase();
-            //      txt.text = dpu.line;
-            
-        //    }
-//RefreshState();
-        //}
+       }
     }
 }
+ 

@@ -98,7 +98,7 @@ public class titleController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-         DisplayUnit dpu = GetLineFromDataBase();
+      //   DisplayUnit dpu = GetLineFromDataBase();
 
     }
 

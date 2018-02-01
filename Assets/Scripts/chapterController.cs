@@ -5,14 +5,22 @@ using UnityEngine.UI;
 
 public class chapterController : MonoBehaviour {
 
-    public Canvas chapter;
-	// Use this for initialization
-	void Start () {
-        chapter.gameObject.active = false;
+    public Canvas chapter1;
+    public Canvas chapter2;
+    public Canvas chapter3;
+    public Canvas chapter4;
+    public Canvas chapterEnd;
+    // Use this for initialization
+    void Start () {
+        chapter1.gameObject.active = false;
+        chapter2.gameObject.active = false;
+        chapter3.gameObject.active = false;
+        chapter4.gameObject.active = false;
+        chapterEnd.gameObject.active = false;
     }
 
     public void startChpter(){
-        chapter.gameObject.active = true;
+        chapter1.gameObject.active = true;
 
     }
 	
