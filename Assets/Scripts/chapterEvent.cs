@@ -82,13 +82,21 @@ namespace DemoChapter {
             return ret;
         }
 
-        public static int PlayIndex;
+        public static int PlayIndex = 0;
+        public static float letterPause = 0.2f;
         string bgmPlay;
         void OnEnable() {
             PlayIndex = 1;
             bgmPlay = "";
             chapter_title.enabled = false;
             bg.enabled = false;
+        }
+
+        private IEnumerator TypeText(string word, Text T) {
+            foreach (char letter in word.ToCharArray()) {
+                T.text += letter;
+                yield return new WaitForSeconds(letterPause);
+            }
         }
 
         // Use this for initialization
@@ -112,7 +120,10 @@ namespace DemoChapter {
                         bgmPlay = dpu.music;
                         bgm.GetComponent<audioController>().PlayMusic(bgm, "Assets/" + dpu.music + ".mp3");
                     }
-                    txt.text = dpu.line;
+                    txt.text = "";
+                    Debug.Log("txt.text");
+                    StartCoroutine(TypeText(dpu.line, txt));
+                    Debug.Log("foreach");
                     txt2.text = dpu.character;
                     avatar.sprite = Resources.Load(dpu.avatar, typeof(Sprite)) as Sprite;
                     PlayIndex++;
