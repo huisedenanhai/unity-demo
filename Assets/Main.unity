@@ -1648,7 +1648,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 603282101}
-        m_MethodName: configBoxSetActive
+        m_MethodName: returnTitleButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1953,6 +1953,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   configBox: {fileID: 2134262071}
+  chapter1: {fileID: 683924469}
+  chapter2: {fileID: 2112964439}
+  chapter3: {fileID: 244535181}
+  chapter4: {fileID: 1711407380}
+  txtBox: {fileID: 927438339}
 --- !u!114 &603282102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3801,6 +3806,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   configBox: {fileID: 2134262071}
+  chapter1: {fileID: 0}
+  chapter2: {fileID: 0}
+  chapter3: {fileID: 0}
+  chapter4: {fileID: 0}
+  txtBox: {fileID: 0}
 --- !u!1 &1091178847
 GameObject:
   m_ObjectHideFlags: 0
