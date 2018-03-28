@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using DemoChapter;
 
 
 public class audioController : MonoBehaviour {
 
     public AudioSource BGM;
     public Slider sliderBGM;
+    public Slider Slider_txtSpeed;
 
     public void PlayMusic(AudioSource bgm,string musicPath)
     {
@@ -40,10 +42,13 @@ public class audioController : MonoBehaviour {
         //     Debug.Log(bgmNumPrefix);
         // }
     }
+
+    public static int MaxTextSpeed = 100;
     
 	// Update is called once per frame
 	void Update () {
         BGM.volume = sliderBGM.value;
+        chapterEvent.letterPause = 0.01f + (float)(MaxTextSpeed - Slider_txtSpeed.value)/1000;
 #pragma warning disable CS0618 // 类型或成员已过时
         if (BGM.isPlaying == false && title.gameObject.active == true) {
 #pragma warning restore CS0618 // 类型或成员已过时

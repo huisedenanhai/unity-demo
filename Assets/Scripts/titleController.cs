@@ -1,11 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using Mono.Data.Sqlite;
 using System.Data;
-using System;
 
 public class titleController : MonoBehaviour {
 
@@ -14,7 +9,7 @@ public class titleController : MonoBehaviour {
     private struct DisplayUnit {
         public string line;
         public string avatar;
-        public string music;
+        public string music;    
     }
 
     private enum MainTitleStates {

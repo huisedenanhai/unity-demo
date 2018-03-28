@@ -1,2 +1,5 @@
 Library/*
 .vs/*
+*.sl
+*.meta
+Temp/*
