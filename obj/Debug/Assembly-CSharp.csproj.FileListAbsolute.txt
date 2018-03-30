@@ -63,6 +63,5 @@ D:\myWorks\Colorless\program\unity-demo\Temp\bin\Debug\nunit.framework.xml
 D:\myWorks\Colorless\program\unity-demo\Temp\bin\Debug\UnityEngine.Timeline.xml
 D:\myWorks\Colorless\program\unity-demo\Temp\bin\Debug\UnityEngine.Analytics.xml
 D:\myWorks\Colorless\program\unity-demo\Temp\bin\Debug\UnityEngine.HoloLens.xml
-D:\myWorks\Colorless\program\unity-demo\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 D:\myWorks\Colorless\program\unity-demo\obj\Debug\Assembly-CSharp.dll
 D:\myWorks\Colorless\program\unity-demo\obj\Debug\Assembly-CSharp.pdb

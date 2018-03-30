@@ -52,14 +52,22 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\audioController.cs" />
+     <Compile Include="Assets\Scripts\autoButtonController.cs" />
      <Compile Include="Assets\Scripts\chapterController.cs" />
      <Compile Include="Assets\Scripts\chapterEndController.cs" />
      <Compile Include="Assets\Scripts\chapterEvent.cs" />
      <Compile Include="Assets\Scripts\configBoxController.cs" />
      <Compile Include="Assets\Scripts\exitController.cs" />
+     <Compile Include="Assets\Scripts\globalVariable.cs" />
+     <Compile Include="Assets\Scripts\LogBoxController.cs" />
      <Compile Include="Assets\Scripts\MainTitle.cs" />
+     <Compile Include="Assets\Scripts\OptionSave.cs" />
+     <Compile Include="Assets\Scripts\SaveAndLoad.cs" />
+     <Compile Include="Assets\Scripts\skipButtonController.cs" />
+     <Compile Include="Assets\Scripts\SLboxController.cs" />
      <Compile Include="Assets\Scripts\titleController.cs" />
      <Compile Include="Assets\Scripts\txtBoxController.cs" />
+     <Compile Include="Assets\Scripts\voiceController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
